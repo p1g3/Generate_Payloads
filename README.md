@@ -49,7 +49,20 @@ generate_payload_class('{"k1":"v1","k2":{"k3":"v2"},"k4":[1,2,3]}', 'json', '<pa
 特点：
 
 - 能够解析JSON嵌套类型的数据
-- 能够自动识别urlencode、decode类型的数据
+- 能够自动识别urlencode、base64encode类型的数据
 - 高度可用性
+
+参数说明：
+
+- params
+  - 需要解析的参数，对应格式：a=1&b=2 || {"a":1,"b":2}
+- param_type
+  - 对应的参数类型，上述两种参数分别对应了params与json
+- payload
+  - 需要填充的payload
+- check_keys
+  - 只针对某个参数填充payload，使用的是in来判断
+- mode
+  - 默认为cover（覆盖），可以指定为其它让payload在原值后面。
 
 在主程序中，我还提供了多种真实案例中存在的JSON嵌套以做测试，需要注意的是，此模块并不是专为解析JSON嵌套而生的，即使不嵌套也是可以使用其生成payload。
