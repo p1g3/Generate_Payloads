@@ -12,13 +12,13 @@
 
 对应代码：
 
-```python
+```
 generate_payload_class('{"k1":"v1","k2":{"k3":"v2"},"k4":[1,2,3]}', 'json', '<payload>').generate_payload()
 ```
 
 上述的参数，被解析后会输出如下结果：
 
-```json
+```
 {
     'k1': '{"k1": "<payload>", "k2": {"k3": "v2"}, "k4": [1, 2, 3]}',
     'k2': '{"k1": "v1", "k2": "<payload>", "k4": [1, 2, 3]}',
@@ -32,7 +32,7 @@ generate_payload_class('{"k1":"v1","k2":{"k3":"v2"},"k4":[1,2,3]}', 'json', '<pa
 
 而对应的索引为0的字典如下：
 
-```json
+```
 {
     'k1': '<payload>',
     'k2': '<payload>',
